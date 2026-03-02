@@ -17,7 +17,7 @@ export default function Register() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      router.push('/game');
+      router.push('/gallery');
     }
   }, [isAuthenticated, router]);
 

@@ -16,7 +16,7 @@ export default function Login() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      router.push('/game');
+      router.push('/gallery');
     }
   }, [isAuthenticated, router]);
 
@@ -39,7 +39,7 @@ export default function Login() {
 
     try {
       await login({ username: username.trim(), password });
-      router.push('/game');
+      router.push('/gallery');
     } catch (err) {
       setError(err instanceof Error ? err.message : "Error al iniciar sesión");
     } finally {

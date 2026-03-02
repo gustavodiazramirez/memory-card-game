@@ -51,7 +51,7 @@ export default function GameModal({ isOpen, turns, onRestart }: GameModalProps) 
             Jugar de nuevo
           </button>
           <button
-            onClick={() => router.push('/game')}
+            onClick={() => router.push('/gallery')}
             className="w-full py-3 px-4 bg-transparent border border-button-border rounded-lg font-medium text-form-text hover:bg-button-border/20 transition-all"
           >
             Volver al inicio

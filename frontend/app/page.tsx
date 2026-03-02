@@ -14,7 +14,7 @@ export default function Home() {
     if (!isLoading && !hasRedirected.current) {
       hasRedirected.current = true;
       if (isAuthenticated) {
-        router.replace("/game");
+        router.replace("/gallery");
       } else {
         router.replace("/login");
       }
