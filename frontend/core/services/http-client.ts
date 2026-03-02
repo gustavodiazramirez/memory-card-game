@@ -52,7 +52,7 @@ class HttpClient {
     const newAccessToken = data.accessToken;
 
     tokenService.setAccessToken(newAccessToken);
-    
+
     // Si el backend devuelve un nuevo refreshToken, actualizarlo también
     if (data.refreshToken) {
       tokenService.setTokens(newAccessToken, data.refreshToken);

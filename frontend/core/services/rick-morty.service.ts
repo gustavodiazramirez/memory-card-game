@@ -3,6 +3,7 @@ import { Character } from '../types/character.types';
 const API_BASE_URL = 'https://rickandmortyapi.com/api';
 
 export class RickMortyService {
+  
   /**
    * Obtiene personajes aleatorios de la API
    * @param count Número de personajes únicos a obtener

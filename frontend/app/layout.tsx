@@ -3,8 +3,8 @@ import "./globals.css";
 import { AuthProvider } from "@/features/auth/context/auth-context";
 
 export const metadata: Metadata = {
-  title: "App Auth",
-  description: "Sistema de autenticación profesional",
+  title: "Memory Card Game",
+  description: "Juego de memoria con personajes de Rick and Morty",
 };
 
 export default function RootLayout({

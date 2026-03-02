@@ -1,9 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/auth-context";
-import { Loading, ActionButton, TextButton, FormInput } from "@/core/components";
+import {
+  Loading,
+  ActionButton,
+  TextButton,
+  FormInput,
+} from "@/core/components";
 import Image from "next/image";
 
 export default function Login() {
@@ -13,16 +18,22 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const hasRedirected = useRef(false);
 
   useEffect(() => {
-    if (isAuthenticated) {
-      router.push('/gallery');
+    if (isAuthenticated && !authLoading && !hasRedirected.current) {
+      hasRedirected.current = true;
+      router.replace("/gallery");
     }
-  }, [isAuthenticated, router]);
+  }, [isAuthenticated, authLoading, router]);
 
   // No renderizar el formulario si ya está autenticado
-  if (authLoading || isAuthenticated) {
+  if (authLoading) {
     return <Loading />;
+  }
+
+  if (isAuthenticated) {
+    return null;
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -39,7 +50,7 @@ export default function Login() {
 
     try {
       await login({ username: username.trim(), password });
-      router.push('/gallery');
+      router.push("/gallery");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Error al iniciar sesión");
     } finally {
@@ -96,11 +107,7 @@ export default function Login() {
 
             {/* Botón */}
             <div className="pt-2">
-              <ActionButton
-                type="submit"
-                disabled={isLoading}
-                fullWidth
-              >
+              <ActionButton type="submit" disabled={isLoading} fullWidth>
                 {isLoading ? "Iniciando sesión..." : "Iniciar sesión"}
               </ActionButton>
             </div>
