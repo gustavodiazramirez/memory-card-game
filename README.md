@@ -87,27 +87,6 @@ TypeORM como ORM proporciona:
 - APIs externas (Rick and Morty) consumidas directamente por frontend
 - Backend solo expone endpoints de autenticación y gestión de sesiones
 
-### Stack Tecnológico
-
-**Backend**:
-
-- NestJS 11: Framework Node.js con arquitectura modular
-- TypeORM: ORM con soporte para PostgreSQL
-- Passport JWT: Estrategia de autenticación
-- bcryptjs: Hashing de contraseñas
-
-**Frontend**:
-
-- Next.js 16: Framework React con App Router
-- TypeScript 5: Type-safety en todo el código
-- Tailwind CSS 4: Estilos utility-first
-- React Context: Gestión de estado de autenticación
-
-**Infraestructura**:
-
-- Docker Compose: Orquestación de PostgreSQL y backend
-- PostgreSQL: Base de datos relacional
-
 ## Estructura del Monorepo
 
 ```
