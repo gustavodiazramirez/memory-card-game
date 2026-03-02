@@ -8,7 +8,11 @@ interface CharacterCardProps {
   className?: string;
 }
 
-export function CharacterCard({ character, onClick, className = "" }: CharacterCardProps) {
+export function CharacterCard({
+  character,
+  onClick,
+  className = "",
+}: CharacterCardProps) {
   return (
     <div
       onClick={onClick}
