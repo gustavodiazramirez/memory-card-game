@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../context/auth-context';
+import { Loading } from '@/core/components';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -20,9 +21,7 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="text-lg text-card">Cargando...</div>
-      </div>
+      <Loading message="Verificando autenticación..." />
     );
   }
 
