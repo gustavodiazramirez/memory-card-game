@@ -16,7 +16,7 @@ export function Paginator({
   isLoading = false,
 }: PaginatorProps) {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-4">
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-4 mx-2">
       <button
         onClick={onPrevious}
         disabled={currentPage === 1 || isLoading}
