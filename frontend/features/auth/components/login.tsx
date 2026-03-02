@@ -123,6 +123,15 @@ export default function Login() {
             </div>
           </form>
         </div>
+        <div className="text-center mt-12 text-sm text-gray-500">
+          <a
+            href="http://gustavodiaz.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Creado por Gustavo Díaz Ramírez
+          </a>
+        </div>
       </div>
     </div>
   );

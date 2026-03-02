@@ -1,30 +1,35 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { useAuth } from '../context/auth-context';
-import { Loading, ActionButton, TextButton, FormInput } from '@/core/components';
-import Image from 'next/image';
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "../context/auth-context";
+import {
+  Loading,
+  ActionButton,
+  TextButton,
+  FormInput,
+} from "@/core/components";
+import Image from "next/image";
 
 export default function Register() {
   const router = useRouter();
   const { register, isAuthenticated, isLoading: authLoading } = useAuth();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated) {
-      router.push('/gallery');
+      router.push("/gallery");
     }
   }, [isAuthenticated, router]);
 
   useEffect(() => {
     if (success) {
       const timer = setTimeout(() => {
-        router.push('/login');
+        router.push("/login");
       }, 2000);
       return () => clearTimeout(timer);
     }
@@ -37,26 +42,26 @@ export default function Register() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validación básica
     if (!username.trim() || !password.trim()) {
-      setError('Por favor completa todos los campos');
+      setError("Por favor completa todos los campos");
       return;
     }
-    
+
     if (password.length < 6) {
-      setError('La contraseña debe tener al menos 6 caracteres');
+      setError("La contraseña debe tener al menos 6 caracteres");
       return;
     }
-    
-    setError('');
+
+    setError("");
     setIsLoading(true);
 
     try {
       await register({ username: username.trim(), password });
       setSuccess(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error al registrarse');
+      setError(err instanceof Error ? err.message : "Error al registrarse");
     } finally {
       setIsLoading(false);
     }
@@ -127,18 +132,14 @@ export default function Register() {
 
             {/* Botón */}
             <div className="pt-2">
-              <ActionButton
-                type="submit"
-                disabled={isLoading}
-                fullWidth
-              >
-                {isLoading ? 'Registrando...' : 'Registrarse'}
+              <ActionButton type="submit" disabled={isLoading} fullWidth>
+                {isLoading ? "Registrando..." : "Registrarse"}
               </ActionButton>
             </div>
 
             {/* Link login */}
             <div className="text-center pt-2 text-link-register">
-              <TextButton onClick={() => router.push('/login')}>
+              <TextButton onClick={() => router.push("/login")}>
                 ¿Ya tienes cuenta?{" "}
                 <span className="underline hover:cursor-pointer">
                   Inicia sesión
@@ -146,6 +147,15 @@ export default function Register() {
               </TextButton>
             </div>
           </form>
+        </div>
+        <div className="text-center mt-12 text-sm text-gray-500">
+          <a
+            href="http://gustavodiaz.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Creado por Gustavo Díaz Ramírez
+          </a>
         </div>
       </div>
     </div>
