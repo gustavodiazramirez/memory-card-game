@@ -34,7 +34,7 @@ export default function Card({ card, onClick, disabled }: CardProps) {
           className="mb-2"
         />
       ) : (
-        <div className="rounded-2xl overflow-hidden shadow-lg w-40 h-52 sm:w-48 sm:h-60 md:w-53 md:h-65 mb-2 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-card-back">
+        <div className="rounded-2xl overflow-hidden shadow-lg w-40 h-52 sm:w-48 sm:h-60 md:w-53 md:h-65 mb-4 flex items-center justify-center p-4 sm:p-5 md:p-6 bg-card-back">
           <Image
             src="/ricky_morty_img.svg"
             alt="Rick and Morty"
