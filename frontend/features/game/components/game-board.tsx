@@ -66,26 +66,15 @@ export default function GameBoard() {
 
         {/* Contenedor principal del juego */}
         <div className="bg-card rounded-2xl shadow-2xl p-3 sm:p-6">
-          {/* Título y stats */}
-          {gameState.isShowingInitialCards ? (
-            // Estado inicial: solo mostrar "Personajes" a la izquierda
-            <div className="mb-3 sm:mb-4">
-              <h2 className="text-lg sm:text-xl font-bold text-form-text">
-                Personajes
-              </h2>
+          <div className="flex justify-between items-center mb-3 sm:mb-4 px-4">
+            <div className="lg">
+              <span className="font-bold">Aciertos:</span>{" "}
+              {gameState.matchedPairs}/6
             </div>
-          ) : (
-            // Estado de juego: mostrar Aciertos y Turnos
-            <div className="flex justify-between items-center mb-3 sm:mb-4">
-              <div className="text-form-text text-xs sm:text-sm">
-                <span className="font-bold">Aciertos:</span>{" "}
-                {gameState.matchedPairs}/6
-              </div>
-              <div className="text-form-text text-xs sm:text-sm">
-                <span className="font-bold">Turnos:</span> {gameState.turns}
-              </div>
+            <div className="text-form-text text-sm sm:text-lg">
+              <span className="font-bold">Turnos:</span> {gameState.turns}
             </div>
-          )}
+          </div>
 
           {/* Grid de cartas */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 justify-items-center">
