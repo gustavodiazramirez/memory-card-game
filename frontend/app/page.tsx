@@ -1,26 +1,27 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { useAuth } from '@/features/auth/context/auth-context';
+import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/features/auth/context/auth-context";
+import { Loading } from "@/core/components";
 
 export default function Home() {
   const router = useRouter();
   const { isAuthenticated, isLoading } = useAuth();
+  const hasRedirected = useRef(false);
 
   useEffect(() => {
-    if (!isLoading) {
+    if (!isLoading && !hasRedirected.current) {
+      hasRedirected.current = true;
       if (isAuthenticated) {
-        router.push('/game');
+        router.replace("/game");
       } else {
-        router.push('/login');
+        router.replace("/login");
       }
     }
   }, [isAuthenticated, isLoading, router]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-lg text-card">Cargando...</div>
-    </div>
+      <Loading message="Redirigiendo..." />
   );
 }

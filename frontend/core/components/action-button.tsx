@@ -17,7 +17,8 @@ export function ActionButton({
   disabled = false,
   fullWidth = false,
 }: ActionButtonProps) {
-  const baseClasses = "py-3 px-4 bg-button-primary border-b-4 border-l-4 border-button-border rounded-lg font-medium tracking-widest text-white hover:bg-button-hover shadow-lg cursor-pointer transition-all";
+  const baseClasses =
+    "py-3 px-4 bg-button-primary border-b-4 border-l-4 border-button-border rounded-lg font-medium tracking-widest text-white hover:bg-button-hover shadow-lg cursor-pointer transition-all";
   const disabledClasses = "disabled:opacity-50 disabled:cursor-not-allowed";
   const widthClasses = fullWidth ? "w-full" : "w-auto";
 
