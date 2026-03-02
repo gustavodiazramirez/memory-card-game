@@ -12,7 +12,7 @@ export function CharacterCard({ character, onClick, className = "" }: CharacterC
   return (
     <div
       onClick={onClick}
-      className={`bg-white rounded-2xl overflow-hidden shadow-lg w-40 h-52 sm:w-48 sm:h-60 md:w-53 md:h-65 mb-3 flex flex-col ${onClick ? "cursor-pointer hover:shadow-xl transition-shadow" : ""} ${className}`}
+      className={`bg-white rounded-2xl overflow-hidden shadow-lg w-40 h-52 sm:w-48 sm:h-60 md:w-53 md:h-65 mb-4 flex flex-col ${onClick ? "cursor-pointer hover:shadow-xl transition-shadow" : ""} ${className}`}
     >
       {/* Imagen del personaje */}
       <div className="relative w-full h-32 sm:h-36 md:h-44 bg-white">
