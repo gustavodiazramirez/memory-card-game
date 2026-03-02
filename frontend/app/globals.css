@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-form-text: var(--form-text);
+  --color-button-primary: var(--button-primary);
+  --color-button-border: var(--button-border);
+  --color-button-hover: var(--button-hover);
+  --color-input-border: var(--input-border);
+  --color-link: var(--link);
+  --color-link-register: var(--link-register);
+  --color-card-back: var(--card-back);
+}
+
+:root {
+  /* Colores de Rick and Morty Theme */
+  --background: #1C1D3B;
+  --card: #FFFAC2;
+  --card-foreground: #313D49;
+  --form-text: #313D49;
+  --button-primary: #1A7A83;
+  --button-border: #E6EC59;
+  --button-hover: #156871;
+  --input-border: #212C31;
+  --link: #1A7A83;
+  --link-register: #465669;
+  --card-back: #A2F2F9;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Estilos para las cartas del juego */
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
